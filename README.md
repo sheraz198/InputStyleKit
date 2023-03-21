@@ -10,6 +10,7 @@ MyPackage is a powerful Swift package that provides a customizable textfield con
 ![Demo GIF](https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Demo.gif)
 
 
+
 # Installation
 
 To use this package, you can include it in your project using Swift Package Manager.
@@ -30,7 +31,11 @@ Drag the Sources folder anywhere in your project.
 
 # Usage
 
+
+
 The library can be easily integrated into your project. After setting your subclass to UITextField, all the IBDesignable settings will be available in the Attribute Inspector, providing a convenient way to customize your text fields within Interface Builder.
+
+![Usage](https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Usage.png)
 
 ### Use as Textfield
 Customize the textfield using the IBInspectable properties available in the Attribute Inspector.
@@ -38,30 +43,30 @@ Customize the textfield using the IBInspectable properties available in the Attr
 ### Use as Picker
 Create a UITextField subclass and set it to InputStyleKit:
 <pre>
-```swift
+
 @IBOutlet weak var picker: InputStyleKit!
-```
+
 </pre>
 
 Set the data property to an array of strings:
 <pre>
-```swift
+
 picker.data = ["iOS", "Android", "Laravel", "Unity"]
-```
+
 </pre>
 
 If you have a model object with a name property, you can use the map function to get an array of names:
 <pre>
-```swift
+
 picker.data = modelArray.map { $0.name }
-```
+
 </pre>
 
 To get the selected row index, you can use the selectedRow property:
 <pre>
-```swift
+
 let selectedIndex = picker.selectedRow
-```
+
 </pre>
 
 
@@ -75,7 +80,7 @@ To validate that a password text field contains at least one uppercase letter, o
 
 
 <pre>
-```swift
+
 
 let validation = InputStyleKit().validateTextFields([tfName, tfEmail, tfPassword])
 
@@ -86,12 +91,12 @@ if validation {
     // Show an error message or other feedback to the user
 }
 
-```
+
 </pre>
 
 
 # Created By
-Sheraz Ahmed, Email: example@example.com
+Sheraz Ahmed, sheraz198@outlook.com
 
 
 # License
