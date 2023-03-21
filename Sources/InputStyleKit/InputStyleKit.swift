@@ -37,11 +37,11 @@ public class InputStyleKit: UITextField {
     
     // MARK: - Public Properties
     
-    public var pickerData: [String] = ["Option 1", "Option 2" ] {
+    public var data: [String] = ["Option 1", "Option 2" ] {
         didSet {
             
-            if pickerData.count > 0 {
-                self.text = pickerData[0]
+            if data.count > 0 {
+                self.text = data[0]
             }
             handleEditing()
             updatePickerData()
@@ -69,7 +69,7 @@ public class InputStyleKit: UITextField {
     
     // MARK: - Attribute Inspector
     
-    @IBInspectable var isFloatingPlaceHolder: Bool = false{
+    @IBInspectable public var isFloatingPlaceHolder: Bool = false{
         didSet{
             setup()
         }
@@ -77,13 +77,13 @@ public class InputStyleKit: UITextField {
     
     
     
-    @IBInspectable var leftIcon: UIImage? {
+    @IBInspectable public var leftIcon: UIImage? {
         didSet {
             setLeftTextfieldIcon()
         }
     }
     
-    @IBInspectable var IconTint: UIColor? {
+    @IBInspectable public var IconTint: UIColor? {
         didSet {
             setLeftTextfieldIcon()
         }
@@ -91,14 +91,14 @@ public class InputStyleKit: UITextField {
     
     
     
-    @IBInspectable var isPickerView: Bool = false{
+    @IBInspectable public var isPickerView: Bool = false{
         didSet{
             setup()
         }
     }
     
     
-    @IBInspectable var passwordEyeTint: UIColor?{
+    @IBInspectable public var passwordEyeTint: UIColor?{
         didSet{
             passwordIcon.tintColor = passwordEyeTint
         }
@@ -282,8 +282,8 @@ public class InputStyleKit: UITextField {
         // Set the input view of the text field to be the picker view
         self.inputView = pickerView
         
-        if pickerData.count > 0 {
-            self.text = pickerData[0]
+        if data.count > 0 {
+            self.text = data[0]
         }
         handleEditing()
         
@@ -313,8 +313,8 @@ public class InputStyleKit: UITextField {
     @objc private func selectPickerView() {
         // Update the text of the text field with the selected value from the picker view
         let selectedRow = pickerView.selectedRow(inComponent: 0)
-        if selectedRow >= 0 && selectedRow < pickerData.count {
-            self.text = pickerData[selectedRow]
+        if selectedRow >= 0 && selectedRow < data.count {
+            self.text = data[selectedRow]
         }
         
         // Hide the picker view
@@ -392,17 +392,17 @@ extension InputStyleKit: UIPickerViewDelegate, UIPickerViewDataSource  {
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return data.count
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         handleEditing()
-        return pickerData[row]
+        return data[row]
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        self.text = pickerData[row]
+        self.text = data[row]
         
     }
     
