@@ -14,13 +14,15 @@ public class InputStyleKit: UITextField {
     
     // MARK: - Private Properties
     
+    
     private let floatingPlaceholder = UILabel()
     private let floatingView = UIView()
     private let pickerView = UIPickerView()
     
     private let errorIcon = UIImageView(image: UIImage(systemName: "exclamationmark.circle"))
-    private let passwordIcon = UIImageView(image: UIImage(systemName: "eye"))
+    private let passwordIcon = UIImageView(image: UIImage(systemName: "eye.slash"))
     private let rightIconStackView = UIStackView()
+    
     
     
     private var error: Bool = false {
@@ -28,9 +30,7 @@ public class InputStyleKit: UITextField {
             if error {
                 errorIcon.isHidden = false
             } else {
-                
                 errorIcon.isHidden = true
-                
             }
         }
     }
@@ -47,6 +47,7 @@ public class InputStyleKit: UITextField {
             updatePickerData()
         }
     }
+    
     
     
     
@@ -98,13 +99,7 @@ public class InputStyleKit: UITextField {
     }
     
     
-    @IBInspectable public var passwordEyeTint: UIColor?{
-        didSet{
-            passwordIcon.tintColor = passwordEyeTint
-        }
-    }
-    
-    
+  
     
     
     
@@ -172,9 +167,9 @@ public class InputStyleKit: UITextField {
         rightIconStackView.addArrangedSubview(divider)
         
         
-        
     }
     
+
     
     
     
@@ -226,7 +221,7 @@ public class InputStyleKit: UITextField {
         
         
         rightIconStackView.addArrangedSubview(passwordIcon)
-        
+        passwordIcon.tintColor = UIColor.placeholderText
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.togglePasswordView))
         passwordIcon.addGestureRecognizer(tap)
         passwordIcon.isUserInteractionEnabled = true
@@ -236,9 +231,11 @@ public class InputStyleKit: UITextField {
     
     @objc private func setPasswordToggleImage() {
         if(isSecureTextEntry){
-            passwordIcon.image = UIImage(systemName: "eye")
-        }else{
             passwordIcon.image = UIImage(systemName: "eye.slash")
+            passwordIcon.tintColor = UIColor.placeholderText
+        }else{
+            passwordIcon.image = UIImage(systemName: "eye")
+            passwordIcon.tintColor = UIColor.label
         }
     }
     
@@ -378,7 +375,6 @@ public class InputStyleKit: UITextField {
     
     
     
-    
 }
 
 
@@ -413,6 +409,7 @@ extension InputStyleKit: UITextFieldDelegate {
     
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
+        
         
         // Do something with the updated text
         if textContentType == .emailAddress{

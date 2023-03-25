@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 struct RegexPatterns {
     
     static let email = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
@@ -25,6 +24,5 @@ struct RegexPatterns {
      
      A combination of uppercase letters, lowercase letters, digits and special characters with a minimum length of 8 characters
      */
-    
     
 }
