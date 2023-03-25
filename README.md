@@ -7,13 +7,9 @@
 
 InputStyleKit is a powerful Swift package that provides a customizable textfield control with a range of useful features. With InputStyleKit, you can create textfields that support floating placeholders, left icons, password hiding, password validation, email validation, and even pickers.
 
-<div style="display: flex; justify-content: space-around;">
-  <div style="flex: 1; padding-right: 10px;">
-    <img src="https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Demo.gif" width="375" />
-  </div>
-  <div style="flex: 1; padding-left: 10px;">
-    <img src="https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Wow.gif" width="375" />
-  </div>
+<div style="display: flex; justify-content: space-around; align-items: flex-start;">
+  <img src="https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Demo.gif" width="400" />
+  <img src="https://raw.githubusercontent.com/sheraz198/InputStyleKit/main/ScreenShots/Wow.gif" width="400" />
 </div>
 
 
