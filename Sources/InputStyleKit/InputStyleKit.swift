@@ -24,7 +24,6 @@ public class InputStyleKit: UITextField {
     private let rightIconStackView = UIStackView()
     
     
-    
     private var error: Bool = false {
         didSet {
             if error {
@@ -346,7 +345,7 @@ public class InputStyleKit: UITextField {
             
             if textField.textContentType == .emailAddress {
                 if let text = textField.text, !text.isEmpty {
-                    let emailRegex = RegexPatterns.email
+                    let emailRegex = RegexPatterns.pattern.emailPattern
                     let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
                     
                     if !emailPredicate.evaluate(with: text) {
@@ -357,7 +356,7 @@ public class InputStyleKit: UITextField {
                 }
             } else if textField.textContentType == .password || textField.textContentType == .newPassword {
                 if let text = textField.text, !text.isEmpty {
-                    let passwordRegex = RegexPatterns.password
+                    let passwordRegex = RegexPatterns.pattern.passwordPattern
                     let passwordPredicate = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
                     
                     if !passwordPredicate.evaluate(with: text) {
@@ -414,7 +413,7 @@ extension InputStyleKit: UITextFieldDelegate {
         // Do something with the updated text
         if textContentType == .emailAddress{
             
-            let emailRegex = RegexPatterns.email
+            let emailRegex = RegexPatterns.pattern.emailPattern
             
             let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
             
@@ -427,7 +426,7 @@ extension InputStyleKit: UITextFieldDelegate {
             
         }else if textContentType == .password || textContentType == .newPassword {
             
-            let passwordRegex = RegexPatterns.password
+            let passwordRegex = RegexPatterns.pattern.passwordPattern
             
             let passwordPredicate = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
             

@@ -45,30 +45,22 @@ Customize the textfield using the IBInspectable properties available in the Attr
 ### Use as Picker
 Create a UITextField subclass and set it to InputStyleKit:
 <pre>
-
 @IBOutlet weak var picker: InputStyleKit!
-
 </pre>
 
 Set the data property to an array of strings:
 <pre>
-
 picker.data = ["iOS", "Android", "Laravel", "Unity"]
-
 </pre>
 
 If you have a model object with a name property, you can use the map function to get an array of names:
 <pre>
-
 picker.data = modelArray.map { $0.name }
-
 </pre>
 
 To get the selected row index, you can use the selectedRow property:
 <pre>
-
 let selectedIndex = picker.selectedRow
-
 </pre>
 
 
@@ -79,11 +71,7 @@ To validate text fields in your form, you can use the validateTextFields functio
 To ensure that a text field contains a valid email address, make sure that its content type is set to EmailAddress in Interface Builder.
 
 To validate that a password text field contains at least one uppercase letter, one lowercase letter, one number, and is at least 8 characters long, make sure that its content type is set to Password in Interface Builder.
-
-
 <pre>
-
-
 let validation = InputStyleKit().validateTextFields([tfName, tfEmail, tfPassword])
 
 // If all fields are valid, continue with your form submission or other action
@@ -92,10 +80,14 @@ if validation {
 } else {
     // Show an error message or other feedback to the user
 }
-
-
 </pre>
 
+
+If you want to use your own email or password regex pattern
+<pre>
+let passwordReg = "(?=[^a-z]*[a-z])(?=[^0-9]*[0-9])[a-zA-Z0-9!@#$%^&*]{8,}"
+RegexPatterns.pattern.update(for: .password, with: passwordReg)
+</pre>
 
 # Created By
 Sheraz Ahmed, sheraz198@outlook.com
